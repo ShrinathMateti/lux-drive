@@ -129,21 +129,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Carousel Manual Controls */}
-      <div className="absolute bottom-10 right-6 z-20 flex gap-3 sm:right-12">
-        <button
-          onClick={handlePrev}
-          className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-black/30 backdrop-blur-md transition-all hover:border-white hover:bg-black/60"
-        >
-          <FiChevronLeft className="text-xl" />
-        </button>
-        <button
-          onClick={handleNext}
-          className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-black/30 backdrop-blur-md transition-all hover:border-white hover:bg-black/60"
-        >
-          <FiChevronRight className="text-xl" />
-        </button>
-      </div>
+      
 
       {/* Carousel Progress Indicators (Dots) */}
       <div className="absolute bottom-12 left-6 z-20 flex gap-2 sm:left-12">
