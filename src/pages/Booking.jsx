@@ -15,20 +15,17 @@ export default function Booking() {
   const location = useLocation();
   const passedCarId = location.state?.initialCarId;
 
-  // Unified State Hooks (Duplicates removed)
   const [selectedCarId, setSelectedCarId] = useState(passedCarId || 1);
   const [days, setDays] = useState(1);
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", startDate: "" });
   const [showToast, setShowToast] = useState(false);
 
-  // Sync state if a user returns to the fleet page and picks a different vehicle asset
   useEffect(() => {
     if (passedCarId) {
       setSelectedCarId(passedCarId);
     }
   }, [passedCarId]);
 
-  // Pricing Calculations
   const activeCar = premiumFleet.find((car) => car.id === Number(selectedCarId)) || premiumFleet[0];
   const baseTotal = activeCar.price * days;
   const gstAmount = Math.round(baseTotal * 0.18);
@@ -39,7 +36,6 @@ export default function Booking() {
     setShowToast(true);
   };
 
-  // Toast Autohide Timer
   useEffect(() => {
     if (showToast) {
       const timer = setTimeout(() => setShowToast(false), 4000);
@@ -48,7 +44,8 @@ export default function Booking() {
   }, [showToast]);
 
   return (
-    <section className="relative flex h-screen w-full items-center justify-center bg-neutral-950 pt-20 overflow-hidden text-neutral-200">
+    /* 1. FIXED: Changed h-screen to min-h-screen, removed overflow-hidden, adjusted padding */
+    <section className="relative flex min-h-screen w-full items-center justify-center bg-neutral-950 pt-28 pb-16 text-neutral-200">
       
       {/* LUXURY SLIDE-IN TOAST ALERT */}
       <div className={`fixed top-24 right-6 z-50 flex w-full max-w-sm items-start gap-3 rounded-2xl border border-amber-500/20 bg-neutral-900/90 p-4 shadow-2xl shadow-amber-500/10 backdrop-blur-xl transition-all duration-500 ${
@@ -66,10 +63,11 @@ export default function Booking() {
         </button>
       </div>
 
-      <div className="flex h-full w-full max-w-6xl flex-col justify-center px-6 py-4">
+      {/* 2. FIXED: Removed h-full so it doesn't try to inherit a locked screen height */}
+      <div className="flex w-full max-w-6xl flex-col justify-center px-6">
         
         {/* Compact Header */}
-        <div className="mb-4 shrink-0">
+        <div className="mb-6 shrink-0">
           <span className="text-[10px] font-bold uppercase tracking-widest text-amber-500">Concierge Desk</span>
           <h1 className="text-2xl font-black tracking-tight text-white md:text-3xl">
             Bespoke Reservation
@@ -77,10 +75,10 @@ export default function Booking() {
         </div>
 
         {/* Form Grid Frame */}
-        <div className="grid gap-6 lg:grid-cols-12 items-stretch min-h-0">
+        <div className="grid gap-6 lg:grid-cols-12 items-stretch">
           
           {/* Intake Column */}
-          <form onSubmit={handleSubmit} className="flex flex-col justify-between lg:col-span-7 bg-neutral-900/30 border border-white/5 rounded-2xl p-5 backdrop-blur-md">
+          <form onSubmit={handleSubmit} className="flex flex-col justify-between lg:col-span-7 bg-neutral-900/30 border border-white/5 rounded-2xl p-5 backdrop-blur-md gap-4">
             <div className="space-y-3.5">
               
               {/* Dropdown Selection */}
@@ -202,14 +200,14 @@ export default function Booking() {
 
             <button
               type="submit"
-              className="mt-4 w-full rounded-xl bg-linear-to-r from-amber-500 to-orange-600 py-3.5 text-xs font-bold uppercase tracking-widest text-black shadow-lg transition-all duration-300 active:scale-[0.99]"
+              className="mt-4 w-full rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 py-3.5 text-xs font-bold uppercase tracking-widest text-black shadow-lg transition-all duration-300 active:scale-[0.99]"
             >
               Request Secure Reservation
             </button>
           </form>
 
           {/* Pricing Analysis Summary Column */}
-          <div className="flex flex-col justify-between lg:col-span-5 border border-white/5 bg-linear-to-b from-neutral-900/60 to-neutral-950 rounded-2xl p-5 backdrop-blur-md">
+          <div className="flex flex-col justify-between lg:col-span-5 border border-white/5 bg-gradient-to-b from-neutral-900/60 to-neutral-950 rounded-2xl p-5 backdrop-blur-md gap-6">
             <div>
               <h3 className="text-xs font-bold uppercase tracking-wider text-white mb-4 flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-amber-500 animate-pulse" />
@@ -239,7 +237,7 @@ export default function Booking() {
               </div>
             </div>
 
-            <div className="mt-4 rounded-xl bg-white/5 border border-white/5 p-3 flex gap-2.5 text-[11px] text-neutral-500 leading-normal">
+            <div className="rounded-xl bg-white/5 border border-white/5 p-3 flex gap-2.5 text-[11px] text-neutral-500 leading-normal">
               <RiShieldFlashLine className="text-amber-500 text-sm shrink-0 mt-0.5" />
               <p>
                 Rates include fully comprehensive passenger insurance coverage, zero hidden fuel premiums, and 24/7 dedicated support.
