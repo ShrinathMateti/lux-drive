@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { RiUserLine, RiMailLine, RiCarLine, RiCalendarLine, RiShieldFlashLine, RiCheckboxCircleLine, RiCloseLine } from "react-icons/ri";
+import { RiUserLine, RiMailLine,  RiCalendarLine, RiShieldFlashLine, RiCheckboxCircleLine, RiCloseLine } from "react-icons/ri";
+import { IoCarSport } from "react-icons/io5"
+
 
 const premiumFleet = [
   { id: 1, name: "Mercedes-Benz S-Class (S 450e)", price: 85000 },
@@ -85,7 +87,7 @@ export default function Booking() {
               <div className="space-y-1">
                 <label className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">Select Fleet Vehicle</label>
                 <div className="relative flex items-center">
-                  <RiCarLine className="absolute left-3.5 text-amber-500 text-base pointer-events-none" />
+                  <IoCarSport className="absolute left-3.5 text-amber-500 text-base pointer-events-none" />
                   <select
                     value={selectedCarId}
                     onChange={(e) => setSelectedCarId(e.target.value)}
