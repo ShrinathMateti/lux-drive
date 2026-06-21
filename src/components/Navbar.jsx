@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
-import { RiCarLine, RiCalendarCheckLine } from "react-icons/ri";
+import { RiCalendarCheckLine } from "react-icons/ri";
+import { IoCarSport } from "react-icons/io5"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +20,7 @@ export default function Navbar() {
         
         {/* Logo Section */}
         <Link to="/" className="flex items-center gap-2 group">
-          <RiCarLine className="text-2xl text-amber-500 transition-transform duration-300 group-hover:-translate-x-1" />
+          <IoCarSport className="text-2xl text-amber-500 transition-transform duration-300 group-hover:-translate-x-1" />
           <h1 className="text-xl font-black tracking-widest bg-linear-to-r from-white via-neutral-200 to-neutral-400 bg-clip-text text-transparent">
             LUXDRIVE
           </h1>

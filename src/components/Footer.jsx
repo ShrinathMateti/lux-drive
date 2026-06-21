@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import { 
-  RiCarLine, 
   RiInstagramLine, 
   RiFacebookCircleLine, 
   RiTwitterXLine, 
@@ -9,6 +8,7 @@ import {
   RiPhoneLine,
   RiMapPinLine
 } from "react-icons/ri";
+import { IoCarSport } from "react-icons/io5"
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -44,7 +44,7 @@ export default function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-4 flex flex-col gap-4">
             <Link to="/" className="flex items-center gap-2 group w-fit">
-              <RiCarLine className="text-2xl text-amber-500 transition-transform duration-300 group-hover:-translate-x-1" />
+              <IoCarSport className="text-2xl text-amber-500 transition-transform duration-300 group-hover:-translate-x-1" />
               <h2 className="text-xl font-black tracking-widest text-white">
                 LUXDRIVE
               </h2>

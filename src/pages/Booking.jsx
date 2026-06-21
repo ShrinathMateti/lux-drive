@@ -200,14 +200,14 @@ export default function Booking() {
 
             <button
               type="submit"
-              className="mt-4 w-full rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 py-3.5 text-xs font-bold uppercase tracking-widest text-black shadow-lg transition-all duration-300 active:scale-[0.99]"
+              className="mt-4 w-full rounded-xl bg-linear-to-r from-amber-500 to-orange-600 py-3.5 text-xs font-bold uppercase tracking-widest text-black shadow-lg transition-all duration-300 active:scale-[0.99]"
             >
               Request Secure Reservation
             </button>
           </form>
 
           {/* Pricing Analysis Summary Column */}
-          <div className="flex flex-col justify-between lg:col-span-5 border border-white/5 bg-gradient-to-b from-neutral-900/60 to-neutral-950 rounded-2xl p-5 backdrop-blur-md gap-6">
+          <div className="flex flex-col justify-between lg:col-span-5 border border-white/5 bg-linear-to-b from-neutral-900/60 to-neutral-950 rounded-2xl p-5 backdrop-blur-md gap-6">
             <div>
               <h3 className="text-xs font-bold uppercase tracking-wider text-white mb-4 flex items-center gap-2">
                 <span className="h-1.5 w-1.5 rounded-full bg-amber-500 animate-pulse" />

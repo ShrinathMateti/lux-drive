@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { RiLoader5Line, RiCarLine } from "react-icons/ri";
+import { RiLoader5Line} from "react-icons/ri";
+import { IoCarSport } from "react-icons/io5"
 
 export default function Loader() {
   return (
@@ -32,7 +33,7 @@ export default function Loader() {
           }}
           className="absolute text-2xl text-white"
         >
-          <RiCarLine />
+          <IoCarSport />
         </motion.div>
       </div>
 
